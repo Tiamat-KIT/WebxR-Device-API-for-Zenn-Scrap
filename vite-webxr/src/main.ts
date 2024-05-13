@@ -20,7 +20,6 @@ renderer.setPixelRatio(window.devicePixelRatio)
 renderer.xr.enabled = true
 renderer.xr.setReferenceSpaceType('local')
 
-
 // ヒットテスト用のreticleを用意
 const reticle = new THREE.Mesh(
   new THREE.RingGeometry(0.15, 0.2, 32).rotateX(-Math.PI / 2),
@@ -49,6 +48,7 @@ window.onload = () => {
           console.log("Session Started!")
           renderer.xr.setSession(session).then(() => {
             console.log('xR View!')
+            animate()
           })
           /* session.requestAnimationFrame(() => {}) */
         })
@@ -98,5 +98,3 @@ async function render(_: number, frame?: XRFrame) {
 
   renderer.render(scene, camera)
 }
-
-animate()
