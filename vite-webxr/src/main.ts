@@ -18,6 +18,7 @@ window.onload = async() => {
       alert('AR')
       const XRSession = await xr.requestSession("immersive-ar",xRSessionOption)
       renderer.xr.setSession(XRSession).then(() => {
+        alert('do animate')
         animate()
       })
     }
