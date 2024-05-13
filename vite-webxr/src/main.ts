@@ -2,6 +2,7 @@ import './style.css'
 import { renderer, animate } from './three.view';
 
 window.onload = async() => {
+  alert('start')
   const xRSessionOption: XRSessionInit = {
     requiredFeatures: ['hit-test'],
     optionalFeatures: ['dom-overlay'],
