@@ -17,10 +17,8 @@ window.onload = async() => {
     if(isSupported){
       alert('AR')
       const XRSession = await xr.requestSession("immersive-ar",xRSessionOption)
-      renderer.xr.setSession(XRSession).then(() => {
-        alert('do animate')
+        await renderer.xr.setSession(XRSession)
         animate()
-      })
     }
   } else {
     console.error("Can't Used WebxR")
