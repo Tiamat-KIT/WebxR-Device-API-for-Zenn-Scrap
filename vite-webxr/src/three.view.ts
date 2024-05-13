@@ -30,8 +30,6 @@ reticle.matrixAutoUpdate = false
 reticle.visible = false
 scene.add(reticle)
 
-
-
 let hitTestSource: XRHitTestSource | null  = null
 
 export function animate() {
