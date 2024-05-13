@@ -17,7 +17,7 @@ window.onload = () => {
     xr.isSessionSupported("immersive-ar").then((isSupported) => {
       if(isSupported){
         // xr.requestSession("immersive-ar",xRSessionOption).then((session) => {
-        xr.requestSession("immersive-ar",xRSessionOption).then((session) => {
+        xr.requestSession("immersive-ar",xRSessionOption).then(() => {
             console.log("Session Started!")
         })
       }
