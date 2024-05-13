@@ -15,6 +15,7 @@ window.onload = async() => {
   if(xr !== undefined){
     const isSupported = await xr.isSessionSupported("immersive-ar")
     if(isSupported){
+      alert('AR')
       const XRSession = await xr.requestSession("immersive-ar",xRSessionOption)
       renderer.xr.setSession(XRSession).then(() => {
         animate()
