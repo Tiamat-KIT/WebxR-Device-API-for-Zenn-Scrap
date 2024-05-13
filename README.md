@@ -5,4 +5,4 @@
 2. navigator.xr.requestSession()を実行してセッションをリクエストする
 3. 2によって返されたXRSessionから、requestAnimationFrame()を呼び出す
 
-![](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Lifecycle)
+![Life Cycle](https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API/Lifecycle)
