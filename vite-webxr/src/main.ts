@@ -17,9 +17,9 @@ import * as THREE from 'three'
     xr.isSessionSupported("immersive-ar").then((isSupported) => {
       if(isSupported){
         xr.requestSession("immersive-ar",xRSessionOption).then((session) => {
-          console.log("Session Started!")
+          alert("Session Started!")
           renderer.xr.setSession(session).then(() => {
-            console.log('xR View!')
+            alert('xR View!')
             animate()
           })
           /* session.requestAnimationFrame(() => {}) */
