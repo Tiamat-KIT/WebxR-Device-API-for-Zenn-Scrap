@@ -66,7 +66,8 @@ function animate() {
   renderer.setAnimationLoop(render)
 }
 
-async function render(timestamp: number, frame?: XRFrame) {
+async function render(_: number, frame?: XRFrame) {
+  
   if (!frame) return
 
   const referenceSpace = renderer.xr.getReferenceSpace()
