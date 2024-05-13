@@ -3,6 +3,34 @@ import * as THREE from 'three'
 
 // https://gaprot.jp/2023/11/27/webxr-device-api-three-js-webar/
 
+(async() => {
+  const xRSessionOption: XRSessionInit = {
+    requiredFeatures: ['hit-test'],
+    optionalFeatures: ['dom-overlay'],
+    domOverlay: {
+      root: document.body
+    }
+  }
+  
+  const xr = window.navigator.xr;
+  if(xr !== undefined){
+    xr.isSessionSupported("immersive-ar").then((isSupported) => {
+      if(isSupported){
+        xr.requestSession("immersive-ar",xRSessionOption).then((session) => {
+          console.log("Session Started!")
+          renderer.xr.setSession(session).then(() => {
+            console.log('xR View!')
+            animate()
+          })
+          /* session.requestAnimationFrame(() => {}) */
+        })
+      }
+    })
+  } else {
+    console.error("Can't Used WebxR")
+  }
+})()
+
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(
   70,
@@ -30,34 +58,6 @@ reticle.visible = false
 scene.add(reticle)
 
 
-window.onload = () => {
-
-  const xRSessionOption: XRSessionInit = {
-    requiredFeatures: ['hit-test'],
-    optionalFeatures: ['dom-overlay'],
-    domOverlay: {
-      root: document.body
-    }
-  }
-  
-  const xr = window.navigator.xr;
-  if(xr !== undefined){
-    xr.isSessionSupported("immersive-ar").then((isSupported) => {
-      if(isSupported){
-        xr.requestSession("immersive-ar",xRSessionOption).then((session) => {
-          console.log("Session Started!")
-          renderer.xr.setSession(session).then(() => {
-            console.log('xR View!')
-            animate()
-          })
-          /* session.requestAnimationFrame(() => {}) */
-        })
-      }
-    })
-  } else {
-    console.error("Can't Used WebxR")
-  }
-}
 
 let hitTestSource: XRHitTestSource | null  = null
 
